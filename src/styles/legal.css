@@ -1,0 +1,19 @@
+/* Privacy, terms and refund pages */
+.legal { padding: 32px 0 64px; background: linear-gradient(180deg, #f3faf5, #fff 320px); }
+.legal .legal__in { max-width: 860px; }
+.legal__crumb { display: flex; gap: 6px; font-size: 13px; color: #64748b; margin-bottom: 14px; }
+.legal__crumb li + li::before { content: '›'; margin-right: 6px; color: #94a3b8; }
+.legal__crumb [aria-current] { color: var(--green); font-weight: 700; }
+.legal h1 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -.5px; line-height: 1.15; }
+.legal__updated { margin-top: 6px; font-size: 14px; color: #64748b; }
+.legal__intro { margin-top: 20px; padding: 18px 20px; border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; background: #eef8f1; color: #334155; }
+.legal__sec { margin-top: 28px; }
+.legal__sec h2 { font-size: 20px; margin-bottom: 10px; }
+.legal__sec h2 span { color: var(--green); }
+.legal__sec p, .legal__sec li { color: #475569; font-size: 15.5px; }
+.legal__sec ul { display: grid; gap: 8px; }
+.legal__sec li { position: relative; padding-left: 20px; }
+.legal__sec li::before { content: ''; position: absolute; left: 4px; top: .65em; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 2px #d9f99d; }
+.legal__others { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; padding-top: 24px; border-top: 1px solid #e3ece6; }
+.legal__others a { padding: 8px 16px; border-radius: 99px; background: #eef8f1; color: var(--green); font-weight: 700; font-size: 14px; }
+.legal__others a:hover { background: var(--green); color: #fff; }
