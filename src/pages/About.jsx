@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Quote, Phone, MapPin } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Seo from '../components/Seo'
 import StatStrip from '../components/StatStrip'
 import { heroSrc, heroSrcSet } from '../data/heroSlides'
-import { ABOUT_STATS, FOUNDER, JOURNEY, VALUES, OFFICES } from '../data/about'
-import { PHONE, PHONE_DISPLAY, PHONE_LINK, SITE_URL, TAGLINE, WHATSAPP_LINK } from '../data/site'
+import { ABOUT_STATS, STORY, PURPOSE, WHAT_WE_DO, HOW_WE_WORK } from '../data/about'
+import { PHONE, SITE_URL, TAGLINE, WHATSAPP_LINK } from '../data/site'
 import '../styles/product-page.css'
 import '../styles/about.css'
 
 const PATH = '/about-us'
-const DESCRIPTION = 'Angadi is a made-in-Tamil Nadu billing software company trusted by 10,000+ businesses for 17+ years. Meet the team, our journey and what we stand for.'
-const HERO_IMAGE = 'multi-branch-billing'
+const DESCRIPTION = 'Angadi builds billing, stock and accounts software for Tamil Nadu shops. 17+ years, 10,000+ businesses and support in Tamil. Read our story.'
+const HERO_IMAGE = 'retail-shop-billing'
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -35,17 +35,12 @@ const jsonLd = {
   ],
 }
 
-// Text still waiting for real details ("[...]") gets a visible highlight
-function T({ children }) {
-  return /\[.*\]/.test(children) ? <mark className="ph">{children}</mark> : children
-}
-
 export default function About() {
   return (
     <>
-      <Seo title="About Us: Billing Software Company in Tamil Nadu" description={DESCRIPTION} path={PATH} jsonLd={jsonLd} />
+      <Seo title="About Angadi: Billing Software Made in Tamil Nadu" description={DESCRIPTION} path={PATH} jsonLd={jsonLd} />
 
-      <section className="pp-hero ab-hero">
+      <section className="pp-hero abt-hero">
         <div className="container pp-hero__in">
           <div>
             <nav aria-label="Breadcrumb">
@@ -54,83 +49,43 @@ export default function About() {
                 <li aria-current="page">About Us</li>
               </ol>
             </nav>
-            <p className="pp-pill">About Angadi</p>
-            <h1>Smart Billing Software <em>for Tamil Nadu Shops</em></h1>
+            <p className="pp-pill">Our Story</p>
+            <h1>We Keep Your Counter Moving <em>Billing software made in Tamil Nadu</em></h1>
             <p className="pp-hero__text">
-              For more than 17 years, Angadi has helped kirana shops, supermarkets and chain stores bill faster, control stock
-              and understand their numbers. Our mission is simple: <b>{TAGLINE}</b>.
+              Angadi is the billing, stock and accounts software behind more than 10,000 shops. For 17+ years we have had one job:
+              make every bill quick, every number clear and every owner a little less worried.
             </p>
-            <StatStrip stats={ABOUT_STATS} />
+            <div className="pp-btns">
+              <Link to="/contact-us" className="pp-btn pp-btn--lime">Talk to Our Team <ArrowRight size={18} aria-hidden="true" /></Link>
+              <Link to="/products" className="pp-btn pp-btn--wa">See Our Products</Link>
+            </div>
           </div>
-          <div className="ab-hero__pic">
+          <div className="abt-hero__pic">
             <img
               src={heroSrc(HERO_IMAGE, 1200)}
               srcSet={heroSrcSet(HERO_IMAGE)}
               sizes="(min-width: 1024px) 560px, 100vw"
               width="1200"
               height="800"
-              alt="Angadi billing software dashboard connecting head office and branches"
+              alt="Angadi billing software running at a retail shop counter"
               fetchPriority="high"
             />
-            <span className="ab-hero__badge"><b>17+</b> Years of trust</span>
+            <span className="abt-hero__tag"><b>{TAGLINE}</b> since day one</span>
           </div>
         </div>
       </section>
 
-      <section className="ab-founder" aria-labelledby="founder-title">
-        <div className="container">
-          <blockquote className="ab-quote">
-            <Quote size={34} aria-hidden="true" />
-            <p><T>{FOUNDER.message}</T></p>
-            <footer><T>{FOUNDER.name}</T>, <T>{FOUNDER.role}</T></footer>
-          </blockquote>
-
-          <div className="ab-founder__card">
-            <div className="ab-founder__photo" aria-hidden="true"><span>Photo</span></div>
-            <div>
-              <p className="pp-eyebrow">Meet the Founder</p>
-              <h2 id="founder-title"><T>{FOUNDER.name}</T></h2>
-              <p className="ab-founder__role"><T>{FOUNDER.role}</T></p>
-              <p className="ab-founder__bio"><T>{FOUNDER.bio}</T></p>
-              <ul className="ab-founder__hl">
-                {FOUNDER.highlights.map(([n, l]) => <li key={l}><b><T>{n}</T></b><span><T>{l}</T></span></li>)}
-              </ul>
-            </div>
+      <section className="abt-story" aria-labelledby="story-title">
+        <div className="container abt-story__in">
+          <div>
+            <p className="pp-eyebrow">Why We Exist</p>
+            <h2 id="story-title">It started at the billing counter</h2>
+            {STORY.map((p) => <p key={p.slice(0, 20)} className="abt-story__p">{p}</p>)}
           </div>
-        </div>
-      </section>
-
-      <section className="ab-journey" aria-labelledby="journey-title">
-        <div className="container">
-          <div className="pp-head">
-            <p className="pp-eyebrow">Our Journey</p>
-            <h2 id="journey-title">17+ years of making billing simple</h2>
-          </div>
-          <ol className="ab-timeline">
-            {JOURNEY.map(([Icon, year, title, text]) => (
+          <ul className="abt-purpose">
+            {PURPOSE.map(([Icon, title, text]) => (
               <li key={title}>
-                <span className="ab-timeline__dot"><Icon size={20} aria-hidden="true" /></span>
-                <div className="ab-timeline__card">
-                  <span className="ab-timeline__year"><T>{year}</T></span>
-                  <h3><T>{title}</T></h3>
-                  <p><T>{text}</T></p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="ab-values" aria-labelledby="values-title">
-        <div className="container">
-          <div className="pp-head">
-            <p className="pp-eyebrow">What We Stand For</p>
-            <h2 id="values-title">Our values</h2>
-          </div>
-          <ul className="ab-values__grid">
-            {VALUES.map(([Icon, title, text]) => (
-              <li key={title}>
-                <span className="ab-values__ic"><Icon size={28} strokeWidth={1.8} aria-hidden="true" /></span>
+                <span className="abt-purpose__ic"><Icon size={24} aria-hidden="true" /></span>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </li>
@@ -139,22 +94,49 @@ export default function About() {
         </div>
       </section>
 
-      <section className="ab-offices" aria-labelledby="offices-title">
+      <section className="abt-numbers" aria-label="Angadi in numbers">
+        <div className="container">
+          <StatStrip stats={ABOUT_STATS} />
+        </div>
+      </section>
+
+      <section className="abt-do" aria-labelledby="do-title">
         <div className="container">
           <div className="pp-head">
-            <p className="pp-eyebrow">Visit Us</p>
-            <h2 id="offices-title">Our offices</h2>
+            <p className="pp-eyebrow">What We Build</p>
+            <h2 id="do-title">One family of software for every kind of trade</h2>
           </div>
-          <ul className="ab-offices__grid">
-            {OFFICES.map(([name, line1, line2]) => (
-              <li key={name}>
-                <span className="ab-offices__ic"><MapPin size={22} aria-hidden="true" /></span>
-                <h3><T>{name}</T></h3>
-                <address><T>{line1}</T><br /><T>{line2}</T></address>
-                <a href={PHONE_LINK}><Phone size={16} aria-hidden="true" /> +91 {PHONE_DISPLAY}</a>
+          <ul className="abt-do__grid">
+            {WHAT_WE_DO.map(([Icon, title, text, to]) => (
+              <li key={title}>
+                <Link to={to} className="abt-do__card">
+                  <span className="abt-do__ic"><Icon size={26} aria-hidden="true" /></span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <span className="abt-do__more">Explore <ArrowRight size={16} aria-hidden="true" /></span>
+                </Link>
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="abt-how" aria-labelledby="how-title">
+        <div className="container">
+          <div className="pp-head">
+            <p className="pp-eyebrow">Working With Us</p>
+            <h2 id="how-title">From first call to everyday billing</h2>
+          </div>
+          <ol className="abt-how__steps">
+            {HOW_WE_WORK.map(([Icon, title, text], i) => (
+              <li key={title}>
+                <span className="abt-how__n">{String(i + 1).padStart(2, '0')}</span>
+                <span className="abt-how__ic"><Icon size={22} aria-hidden="true" /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -162,8 +144,8 @@ export default function About() {
         <div className="container">
           <div className="pp-cta__box">
             <div>
-              <h2 id="cta-title">Let Angadi run your billing</h2>
-              <p>Free installation, free training and 14 days free trial. No credit card needed.</p>
+              <h2 id="cta-title">Ready when your counter is</h2>
+              <p>Try Angadi free for 14 days. Our team helps you set up and trains your staff.</p>
             </div>
             <div className="pp-btns">
               <Link to="/contact-us" className="pp-btn pp-btn--lime">Book Free Demo <ArrowRight size={18} aria-hidden="true" /></Link>

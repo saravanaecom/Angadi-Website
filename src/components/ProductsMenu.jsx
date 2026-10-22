@@ -1,19 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronRight } from 'lucide-react'
-import { CATEGORIES, PRODUCT_COUNT, productPath } from '../data/products/catalog'
+import { CATEGORIES, PRODUCT_COUNT, itemPath } from '../data/products/catalog'
 
 function Item({ p, compact }) {
   const body = (
     <>
       <span className="mega__ic"><p.icon size={compact ? 17 : 20} strokeWidth={1.9} aria-hidden="true" /></span>
       <span className="mega__txt"><b>{p.short}</b>{!compact && <small>{p.blurb}</small>}</span>
-      {p.ready === false && <em className="mega__soon">Soon</em>}
     </>
   )
-  return p.ready === false
-    ? <span className="mega__item is-soon">{body}</span>
-    : <Link to={productPath(p.slug)} className="mega__item">{body}</Link>
+  return <Link to={itemPath(p)} className="mega__item">{body}</Link>
 }
 
 // Desktop mega menu: categories on the left, shop types of the hovered category on the right.

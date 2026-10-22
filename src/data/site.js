@@ -8,6 +8,15 @@ export const PHONE_DISPLAY = `${PHONE.slice(0, 5)} ${PHONE.slice(5)}` // 95000 7
 export const PHONE_LINK = `tel:+91${PHONE}`
 export const WHATSAPP_LINK = `https://wa.me/91${PHONE}?text=${encodeURIComponent('Hi, I want to know more about Angadi Billing Software')}`
 
+export const EMAIL = 'angadiiofficial@gmail.com'
+export const EMAIL_LINK = `mailto:${EMAIL}`
+export const whatsappWith = (text) => `https://wa.me/91${PHONE}?text=${encodeURIComponent(text)}`
+
+// Contact form mail service (Web3Forms, free). Get the key at https://web3forms.com by entering
+// angadiiofficial@gmail.com; mails then arrive in that inbox. Until a key is set the form
+// sends the enquiry on WhatsApp instead.
+export const FORM_ACCESS_KEY = ''
+
 export const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/about-us', label: 'About Us' },

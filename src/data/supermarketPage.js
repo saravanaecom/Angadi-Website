@@ -12,8 +12,8 @@ export const FEATURE_GROUPS = [
     title: 'Billing & Product',
     tag: 'Fast counter, happy queue',
     intro: 'Everything at the supermarket counter: scan, weigh, apply offers and print in seconds.',
-    image: 'supermarket-billing',
-    alt: 'Angadi supermarket billing software on a counter computer with barcode scanner and receipt printer',
+    image: 'retail-shop-plan',
+    alt: 'Angadi billing counter with barcode scanner, billing screen and receipt printer',
     items: [
       [ScanBarcode, 'Barcode & Quick Search Billing', 'Scan or type 2 letters, the item is on the bill.'],
       [Languages, 'Tamil & English Bills', 'Print each bill in the language your customer reads.'],
@@ -34,8 +34,8 @@ export const FEATURE_GROUPS = [
     title: 'Purchase & Stock',
     tag: 'Right stock, right time',
     intro: 'Buy smart, track every packet and never lose money on dead stock.',
-    image: 'multi-branch-billing',
-    alt: 'Angadi stock dashboard showing head office and branch stock for a supermarket chain',
+    image: 'multi-branch-plan',
+    alt: 'Angadi multiple branch dashboard showing head office and branch stock for a supermarket chain',
     items: [
       [ClipboardList, 'Purchase Entry & Orders', 'Raise POs and enter supplier bills in minutes.'],
       [FileSpreadsheet, 'Excel Import', 'Upload items and purchase bills from Excel at once.'],
@@ -56,8 +56,8 @@ export const FEATURE_GROUPS = [
     title: 'Report & Utility',
     tag: 'Clear numbers, calm owner',
     intro: 'Daily numbers, GST filing and safety tools so the owner sleeps well.',
-    image: 'gst-invoice-billing',
-    alt: 'Angadi GST invoice and sales report screen for supermarket owners',
+    image: 'gst-invoice-plan',
+    alt: 'Angadi GST invoice billing screen with HSN codes and A4, A5 and A6 invoice formats',
     phone: true,
     items: [
       [TrendingUp, 'Daily Sales & Profit', "Today's sales, cost and profit on one screen."],

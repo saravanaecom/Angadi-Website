@@ -112,4 +112,21 @@
   .pp-bars { height: 44px; gap: 3px; }
   .pp-btns .pp-btn { flex: 1 1 100%; }
 }
+/* Mobile hero order: text, buttons, product image, then the stats strip (desktop keeps its two columns) */
+@media (max-width: 1023px) {
+  .pp-hero__in { gap: 0; }
+  .pp-hero__in > div:first-child { display: contents; }
+  .pp-hero__in > * { min-width: 0; }
+  .pp-hero .pp-pill { justify-self: start; }
+  .pp-hero .pp-dev--hero { order: 1; margin-top: 30px; }
+  .pp-hero .pp-stats { order: 2; margin-top: 28px; }
+}
+@media (max-width: 560px) {
+  .pp-hero .pp-btns { flex-wrap: nowrap; gap: 10px; margin-top: 22px; }
+  .pp-hero .pp-btns .pp-btn { flex: 1 1 0; min-width: 0; padding: 13px 8px; font-size: 15px; gap: 7px; }
+  .pp-hero .pp-btns .pp-btn--lime svg { display: none; }
+}
+@media (max-width: 360px) {
+  .pp-hero .pp-btns .pp-btn { font-size: 13.5px; padding: 12px 6px; white-space: normal; text-align: center; }
+}
 @media (prefers-reduced-motion: reduce) { .pp-btn, .pp-faq__item summary i { transition: none; } }

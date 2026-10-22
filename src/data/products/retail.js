@@ -20,7 +20,7 @@ export const RETAIL_PRODUCTS = [
     h1: 'Supermarket Billing Software',
     h1em: 'for Chennai & Tamil Nadu',
     heroText: 'Barcode billing, stock, GST reports and an owner app in one simple software, built for Tamil Nadu supermarkets, departmental stores and chain stores. Works offline, syncs to cloud.',
-    hero: { image: 'cloud-billing-desktop-mobile', alt: 'Angadi cloud billing on a shop computer and the owner mobile app' },
+    hero: { image: 'supermarket-plan', alt: 'Supermarket cashier billing a smiling customer with Angadi billing software, barcode scanner and receipt printer' },
     groups: SUPERMARKET_GROUPS,
     faqs: SUPERMARKET_FAQS,
     cta: 'See Angadi running in your own supermarket',
@@ -82,14 +82,14 @@ export const RETAIL_PRODUCTS = [
     h1: 'Retail Billing Software',
     h1em: 'for Every Kind of Shop',
     heroText: 'Stationery, gift, hardware, bakery, fancy or general store, Angadi handles billing, stock and accounts in one place, with GST invoices and Tamil support.',
-    hero: { image: 'retail-shop-billing', alt: 'Retail shop billing counter with Angadi software, barcode scanner and printer' },
+    hero: { image: 'retail-shop-plan', alt: 'Retail shop owner billing a customer at the counter with Angadi billing software, barcode scanner and receipt printer' },
     groups: buildGroups({
       intro: {
         billing: 'A clean billing screen your staff learns in one day, with every payment mode.',
         stock: 'Know exactly what is on the shelf, what to reorder and what is not moving.',
         reports: 'Daily numbers and GST data ready, without calling your accountant.',
       },
-      image: { billing: 'supermarket-billing' },
+      image: { billing: 'supermarket-plan' },
       special: {
         billing: [
           [Barcode, 'Print Your Own Barcodes', 'Label items that come without a barcode in minutes.'],

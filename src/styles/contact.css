@@ -1,0 +1,68 @@
+/* Contact Us page (hero, pill, buttons from product-page.css) */
+.ct-hero { padding-bottom: 48px; }
+.ct-hero__head { max-width: 720px; }
+.ct-hero h1 { font-size: clamp(32px, 4.2vw, 50px); }
+.ct-cards { display: grid; gap: 14px; margin-top: 30px; }
+.ct-card { display: grid; grid-template-columns: 48px 1fr; column-gap: 14px; align-items: center; height: 100%; padding: 18px 20px; border-radius: 18px; background: #fff; border: 1px solid var(--line); color: var(--ink); box-shadow: 0 10px 24px rgba(6, 59, 32, .06); transition: transform .2s, box-shadow .2s, border-color .2s; }
+.ct-card:hover { transform: translateY(-3px); border-color: #9fd4b1; box-shadow: 0 16px 34px rgba(6, 59, 32, .12); }
+.ct-card__ic { grid-row: span 3; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #063b20, var(--green)); color: var(--lime); }
+.ct-card--wa .ct-card__ic { background: #25d366; color: #fff; }
+.ct-card b { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--green); }
+.ct-card__val { font-size: 17px; font-weight: 800; word-break: break-word; }
+.ct-card small { font-size: 13.5px; color: #64748b; }
+
+.ct-main { --dk: #063b20; --line: #e3ece6; padding: 24px 0 64px; }
+.ct-main__in { display: grid; gap: 22px; align-items: start; }
+.ct-box { padding: 26px 20px; border-radius: 22px; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 40px rgba(6, 59, 32, .08); }
+.ct-box h2 { font-size: clamp(22px, 2.4vw, 28px); margin-bottom: 18px; }
+
+.ct-form { display: grid; gap: 14px; }
+.ct-form__row { display: grid; gap: 14px; }
+.ct-form label { display: grid; gap: 6px; }
+.ct-form label > span { font-size: 14px; font-weight: 600; color: #334155; }
+.ct-form input, .ct-form select, .ct-form textarea { width: 100%; padding: 12px 14px; border: 1.5px solid #d6e2da; border-radius: 12px; background: #fbfdfc; font: inherit; font-size: 16px; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+.ct-form textarea { resize: vertical; min-height: 110px; }
+.ct-form input:focus, .ct-form select:focus, .ct-form textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 4px rgba(22, 163, 74, .15); background: #fff; }
+.ct-hp { position: absolute; left: -9999px; }
+.ct-submit { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 15px 24px; border: 0; border-radius: 12px; font: inherit; font-size: 16.5px; font-weight: 700; color: var(--dk); background: linear-gradient(100deg, var(--lime), #7cc520); box-shadow: 0 10px 22px rgba(124, 197, 32, .35); cursor: pointer; transition: transform .2s; }
+.ct-submit:hover { transform: translateY(-2px); }
+.ct-submit:disabled { opacity: .7; cursor: wait; transform: none; }
+.ct-spin { animation: ct-spin 1s linear infinite; }
+@keyframes ct-spin { to { transform: rotate(360deg); } }
+.ct-note { font-size: 13px; color: #64748b; text-align: center; }
+.ct-err { padding: 10px 14px; border-radius: 10px; background: #fef2f2; color: #b91c1c; font-size: 14px; }
+.ct-err a { text-decoration: underline; font-weight: 700; }
+.ct-done { display: grid; justify-items: center; gap: 8px; padding: 28px 10px; text-align: center; color: #475569; }
+.ct-done svg { color: var(--green); }
+.ct-done h3 { font-size: 21px; color: var(--ink); }
+.ct-link { margin-top: 8px; border: 0; background: none; font: inherit; font-weight: 700; color: var(--green); text-decoration: underline; cursor: pointer; }
+
+.ct-side { padding: 26px 22px; border-radius: 22px; color: #cfe8d6; background: radial-gradient(360px 180px at 100% 0%, rgba(163, 230, 53, .22), transparent 60%), linear-gradient(160deg, #063b20, var(--green-dark)); box-shadow: 0 20px 44px rgba(6, 59, 32, .25); }
+.ct-side h2 { color: #fff; font-size: 22px; margin-bottom: 16px; }
+.ct-side ol { display: grid; gap: 16px; }
+.ct-side li { display: flex; gap: 12px; align-items: flex-start; }
+.ct-side__ic { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--lime); color: #063b20; }
+.ct-side li b { display: block; color: #fff; font-size: 16px; }
+.ct-side li span { font-size: 14.5px; line-height: 1.5; }
+.ct-side__direct { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .15); }
+.ct-side__direct p { display: flex; align-items: center; gap: 8px; color: #fff; font-weight: 700; }
+.ct-side__direct p svg { color: var(--lime); }
+.ct-side__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.ct-side__btns .pp-btn { padding: 12px 10px; font-size: 15px; }
+.ct-btn-wa { background: #25d366; color: #fff; }
+.ct-side__more { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; color: var(--lime); font-weight: 700; font-size: 14.5px; }
+
+@media (min-width: 640px) {
+  .ct-form__row { grid-template-columns: 1fr 1fr; }
+  .ct-box { padding: 32px; }
+}
+@media (min-width: 768px) {
+  .ct-cards { grid-template-columns: repeat(3, 1fr); }
+  .ct-card { grid-template-columns: 1fr; row-gap: 4px; padding: 22px; }
+  .ct-card__ic { grid-row: auto; margin-bottom: 10px; }
+}
+@media (min-width: 1024px) {
+  .ct-main__in { grid-template-columns: 1.5fr 1fr; gap: 28px; }
+  .ct-side { position: sticky; top: 170px; padding: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { .ct-card, .ct-submit { transition: none; } .ct-spin { animation: none; } }

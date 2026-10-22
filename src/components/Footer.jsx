@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Phone, MessageCircle } from 'lucide-react'
+import { Phone, MessageCircle, Mail } from 'lucide-react'
 import Logo from './Logo'
 import { LEGAL_LINKS } from '../data/legal'
-import { NAV_LINKS, PHONE_DISPLAY, PHONE_LINK, WHATSAPP_LINK } from '../data/site'
+import { NAV_LINKS, PHONE_DISPLAY, PHONE_LINK, WHATSAPP_LINK, EMAIL, EMAIL_LINK } from '../data/site'
 
 export default function Footer() {
   return (
@@ -34,6 +34,7 @@ export default function Footer() {
                 <MessageCircle size={16} /> WhatsApp Us
               </a>
             </li>
+            <li><a href={EMAIL_LINK}><Mail size={16} /> {EMAIL}</a></li>
           </ul>
         </div>
       </div>

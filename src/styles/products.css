@@ -19,8 +19,6 @@ a.prd-card:hover { transform: translateY(-3px); border-color: #9fd4b1; box-shado
 .prd-card h3 { font-size: 16.5px; }
 .prd-card p { font-size: 13.5px; color: #64748b; line-height: 1.45; }
 .prd-card__go { flex: none; color: var(--green); }
-.prd-card__soon { flex: none; padding: 3px 9px; border-radius: 99px; background: #fef9c3; color: #854d0e; font-size: 11.5px; font-weight: 700; white-space: nowrap; }
-.prd-card--soon { opacity: .8; }
 .prd + .pp-cta, .prd-cat:last-of-type { padding-bottom: 32px; }
 @media (min-width: 640px) { .prd-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .prd-grid { grid-template-columns: repeat(3, 1fr); } }

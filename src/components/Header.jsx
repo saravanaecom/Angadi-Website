@@ -126,6 +126,11 @@ export default function Header() {
                 </div>
               </nav>
 
+              {/* Mobile only: call button beside the menu toggle */}
+              <a href={PHONE_LINK} className="navbar__mphone">
+                <span className="phone-ring"><Phone size={15} aria-hidden="true" /></span> <span>{PHONE_DISPLAY}</span>
+              </a>
+
               <button
                 type="button"
                 className="header__toggle"

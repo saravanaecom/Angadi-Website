@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Seo from '../components/Seo'
-import { CATEGORIES, PRODUCT_COUNT, productPath } from '../data/products/catalog'
+import { CATEGORIES, PRODUCT_COUNT, productPath, itemPath } from '../data/products/catalog'
 import { SITE_URL, WHATSAPP_LINK } from '../data/site'
 import '../styles/product-page.css'
 import '../styles/products.css'
@@ -48,7 +48,6 @@ export default function Products() {
             </div>
             <ul className="prd-grid">
               {c.items.map((p) => {
-                const ready = p.ready !== false
                 const body = (
                   <>
                     <span className="prd-card__ic"><p.icon size={24} strokeWidth={1.9} aria-hidden="true" /></span>
@@ -56,12 +55,12 @@ export default function Products() {
                       <h3>{p.short}</h3>
                       <p>{p.blurb}</p>
                     </span>
-                    {ready ? <ArrowRight className="prd-card__go" size={18} aria-hidden="true" /> : <span className="prd-card__soon">Coming soon</span>}
+                    <ArrowRight className="prd-card__go" size={18} aria-hidden="true" />
                   </>
                 )
                 return (
                   <li key={p.slug}>
-                    {ready ? <Link to={productPath(p.slug)} className="prd-card">{body}</Link> : <div className="prd-card prd-card--soon">{body}</div>}
+                    <Link to={itemPath(p)} className="prd-card">{body}</Link>
                   </li>
                 )
               })}

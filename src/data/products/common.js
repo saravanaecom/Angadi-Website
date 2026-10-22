@@ -44,9 +44,9 @@ export const COMMON = {
 }
 
 const GROUP_META = {
-  billing: { id: 'billing-product', title: 'Billing & Product', tag: 'Fast counter, happy queue', image: 'retail-shop-billing' },
-  stock: { id: 'purchase-stock', title: 'Purchase & Stock', tag: 'Right stock, right time', image: 'multi-branch-billing' },
-  reports: { id: 'report-utility', title: 'Report & Utility', tag: 'Clear numbers, calm owner', image: 'gst-invoice-billing', phone: true },
+  billing: { id: 'billing-product', title: 'Billing & Product', tag: 'Fast counter, happy queue', image: 'retail-shop-plan' },
+  stock: { id: 'purchase-stock', title: 'Purchase & Stock', tag: 'Right stock, right time', image: 'multi-branch-plan' },
+  reports: { id: 'report-utility', title: 'Report & Utility', tag: 'Clear numbers, calm owner', image: 'gst-invoice-plan', phone: true },
 }
 const SIZES = { billing: 12, stock: 12, reports: 10 }
 
