@@ -1,0 +1,7 @@
+# Netlify / Cloudflare Pages: browser caching for PageSpeed (compression is automatic there)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=2592000
