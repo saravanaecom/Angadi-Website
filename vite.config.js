@@ -7,5 +7,10 @@ export default defineConfig({
     script: 'async',
     formatting: 'none',
     dirStyle: 'nested',
+    // Head tags are injected at the top of <head>; keep <meta charset> first, as browsers expect
+    onPageRendered: (route, html) => {
+      const charset = '<meta charset="UTF-8">'
+      return html.replace(charset, '').replace('<head>', '<head>' + charset)
+    },
   },
 })
