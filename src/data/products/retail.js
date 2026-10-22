@@ -20,7 +20,7 @@ export const RETAIL_PRODUCTS = [
     h1: 'Supermarket Billing Software',
     h1em: 'for Chennai & Tamil Nadu',
     heroText: 'Barcode billing, stock, GST reports and an owner app in one simple software, built for Tamil Nadu supermarkets, departmental stores and chain stores. Works offline, syncs to cloud.',
-    hero: { image: 'supermarket-plan', alt: 'Supermarket cashier billing a smiling customer with Angadi billing software, barcode scanner and receipt printer' },
+    hero: { image: 'supermarket-experience', alt: 'Supermarket cashier scanning items for a smiling customer with Angadi billing software, receipt printer and the Angadi mobile app' },
     groups: SUPERMARKET_GROUPS,
     faqs: SUPERMARKET_FAQS,
     cta: 'See Angadi running in your own supermarket',

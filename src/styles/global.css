@@ -325,9 +325,11 @@ img, svg { display: block; max-width: 100%; }
 .hero__pic { grid-area: 1 / 1; width: 100%; height: auto; opacity: 0; transition: opacity .6s ease; }
 .hero__pic.is-active { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .hero__pic { transition: none; } }
-.hero__dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
-.hero__dots button { width: 10px; height: 10px; padding: 0; border: 0; border-radius: 10px; background: #c9dcc0; cursor: pointer; transition: width .25s, background .25s; }
-.hero__dots button.is-active { width: 32px; background: var(--green); }
+.hero__dots { display: flex; justify-content: center; margin-top: 7px; }
+/* 24px tap area around the same small dot */
+.hero__dots button { display: grid; place-items: center; min-width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+.hero__dots button::before { content: ''; width: 10px; height: 10px; border-radius: 10px; background: #c9dcc0; transition: width .25s, background-color .25s; }
+.hero__dots button.is-active::before { width: 32px; background: var(--green); }
 
 /* Platforms: two labelled boxes standing on top of the green strip */
 .platforms { display: flex; justify-content: center; gap: 14px; }
@@ -428,7 +430,7 @@ img, svg { display: block; max-width: 100%; }
   .mockup { padding-top: 4px; padding-bottom: 8px; }
   .mockup__note { top: -12px; font-size: 15px; line-height: 1.25; }
   .laptop { margin-top: 50px; }
-  .hero__dots { margin-top: 8px; }
+  .hero__dots { margin-top: 1px; }
   .hero__pics { width: 100%; max-width: max(440px, calc((100svh - 400px) * 1.5)); margin-left: auto; }
   .highlights { margin-bottom: clamp(16px, 3svh, 36px); }
   .highlights li { padding: 12px 18px; }
@@ -457,7 +459,7 @@ img, svg { display: block; max-width: 100%; }
   .mockup { padding-top: clamp(4px, 5svh - 30px, 28px); }
   .laptop { width: 96%; margin-top: 64px; }
   .mockup__note { font-size: 18px; }
-  .hero__dots { margin-top: 18px; }
+  .hero__dots { margin-top: 11px; }
   .highlights li { padding: clamp(16px, 4svh - 18px, 26px) 24px; }
   .highlights strong { font-size: 17px; }
 }

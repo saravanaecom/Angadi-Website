@@ -1,15 +1,10 @@
 import Layout from './components/Layout'
 import Home from './pages/Home'
-import About from './pages/About'
-import Product from './pages/Product'
-import Products from './pages/Products'
-import ProductPage from './pages/ProductPage'
 import { PRODUCTS } from './data/products/catalog'
-import Pricing from './pages/Pricing'
-import Blog from './pages/Blog'
-import Contact from './pages/Contact'
-import LegalPage from './pages/LegalPage'
-import NotFound from './pages/NotFound'
+
+// Home ships in the main bundle; every other page is its own chunk, loaded only when visited
+// (the import() must sit inside each lazy function so the build can find the page's CSS)
+const page = (props) => ({ default: Page }) => ({ Component: () => <Page {...props} /> })
 
 export const routes = [
   {
@@ -18,17 +13,17 @@ export const routes = [
     entry: 'src/components/Layout.jsx',
     children: [
       { index: true, element: <Home /> },
-      { path: 'about-us', element: <About /> },
-      { path: 'product', element: <Product /> },
-      { path: 'products', element: <Products /> },
-      ...PRODUCTS.map((p) => ({ path: `products/${p.slug}`, element: <ProductPage product={p} /> })),
-      { path: 'pricing', element: <Pricing /> },
-      { path: 'blog', element: <Blog /> },
-      { path: 'contact-us', element: <Contact /> },
-      { path: 'privacy-policy', element: <LegalPage page="privacy" /> },
-      { path: 'terms-and-conditions', element: <LegalPage page="terms" /> },
-      { path: 'refund-policy', element: <LegalPage page="refund" /> },
-      { path: '*', element: <NotFound /> },
+      { path: 'about-us', lazy: () => import('./pages/About').then(page()) },
+      { path: 'product', lazy: () => import('./pages/Product').then(page()) },
+      { path: 'products', lazy: () => import('./pages/Products').then(page()) },
+      ...PRODUCTS.map((p) => ({ path: `products/${p.slug}`, lazy: () => import('./pages/ProductPage').then(page({ product: p })) })),
+      { path: 'pricing', lazy: () => import('./pages/Pricing').then(page()) },
+      { path: 'blog', lazy: () => import('./pages/Blog').then(page()) },
+      { path: 'contact-us', lazy: () => import('./pages/Contact').then(page()) },
+      { path: 'privacy-policy', lazy: () => import('./pages/LegalPage').then(page({ page: 'privacy' })) },
+      { path: 'terms-and-conditions', lazy: () => import('./pages/LegalPage').then(page({ page: 'terms' })) },
+      { path: 'refund-policy', lazy: () => import('./pages/LegalPage').then(page({ page: 'refund' })) },
+      { path: '*', lazy: () => import('./pages/NotFound').then(page()) },
     ],
   },
 ]

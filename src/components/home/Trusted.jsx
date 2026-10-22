@@ -39,7 +39,7 @@ export default function Trusted() {
                 <b>{r.name}</b>
                 <small>{r.place}</small>
               </figcaption>
-              <div className="review__stars" aria-label="5 out of 5 stars">
+              <div className="review__stars" role="img" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }, (_, i) => (
                   <Star key={i} size={14} fill="#f59e0b" color="#f59e0b" aria-hidden="true" />
                 ))}

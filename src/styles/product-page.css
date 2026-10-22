@@ -130,3 +130,5 @@
   .pp-hero .pp-btns .pp-btn { font-size: 13.5px; padding: 12px 6px; white-space: normal; text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) { .pp-btn, .pp-faq__item summary i { transition: none; } }
+/* Decorative outline number drawn as generated content, so it isn't read as low-contrast text */
+.pp-num::before { content: attr(data-n); }

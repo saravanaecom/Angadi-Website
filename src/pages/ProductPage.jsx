@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Head } from 'vite-react-ssg'
 import { ArrowRight, Plus, ListChecks, Award, Store, Headphones } from 'lucide-react'
 import Seo from '../components/Seo'
 import StatStrip from '../components/StatStrip'
@@ -9,7 +8,7 @@ import { productPath } from '../data/products/catalog'
 import { PHONE, PHONE_DISPLAY, PHONE_LINK, SITE_URL, WHATSAPP_LINK } from '../data/site'
 import '../styles/product-page.css'
 
-const DEVICE_SIZES = '(min-width: 1024px) 560px, 100vw'
+const DEVICE_SIZES = '(min-width: 1024px) 560px, calc(100vw - 48px)'
 
 function WhatsAppIcon() {
   return (
@@ -102,9 +101,6 @@ export default function ProductPage({ product: p }) {
   return (
     <>
       <Seo title={p.title} description={p.description} path={path} jsonLd={buildJsonLd(p, path, p.description, count)} />
-      <Head>
-        <link rel="preload" as="image" href={heroSrc(p.hero.image, 1200)} imageSrcSet={heroSrcSet(p.hero.image)} imageSizes={DEVICE_SIZES} fetchPriority="high" />
-      </Head>
 
       <section className="pp-hero">
         <div className="container pp-hero__in">
@@ -148,7 +144,7 @@ export default function ProductPage({ product: p }) {
               {g.phone && <PhoneMock label="Today's Sales" amount="₹48,250" foot="Profit ₹9,640" bars={[40, 65, 50, 80, 70, 95, 60]} />}
             </div>
             <div>
-              <span className="pp-num" aria-hidden="true">0{k + 1}</span>
+              <span className="pp-num" data-n={`0${k + 1}`} aria-hidden="true" />
               <p className="pp-eyebrow">{g.tag}</p>
               <h2 id={`${g.id}-title`}>{g.title}</h2>
               <p className="pp-intro">{g.intro}</p>

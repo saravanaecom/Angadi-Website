@@ -47,4 +47,4 @@ export const HERO_SLIDES = [
 export const heroSrc = (image, w) => `/images/hero/hero-${image}-${w}.webp`
 export const heroSrcSet = (image) => `${heroSrc(image, 720)} 720w, ${heroSrc(image, 1200)} 1200w`
 // Picture column is ~55% of the page on desktop, full width on mobile
-export const HERO_SIZES = '(min-width: 1024px) 55vw, 100vw'
+export const HERO_SIZES = '(min-width: 1024px) 55vw, calc(100vw - 32px)'

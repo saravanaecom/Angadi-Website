@@ -18,6 +18,8 @@ export default function Logo({ full = false }) {
       ) : (
         <img
           src="/images/angadi-logo.webp"
+          srcSet="/images/angadi-logo-180.webp 180w, /images/angadi-logo.webp 291w"
+          sizes="(max-width: 1080px) 92px, 142px"
           width="142" height="78" fetchPriority="high"
           alt={`${SITE_NAME} - ${TAGLINE}`}
         />

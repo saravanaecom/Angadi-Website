@@ -1,5 +1,5 @@
-// Change SITE_URL to your real domain before going live (also in public/robots.txt and public/sitemap.xml)
-export const SITE_URL = 'https://www.angadi.in'
+// Live domain (also in public/robots.txt and public/sitemap.xml)
+export const SITE_URL = 'https://www.angadii.in'
 export const SITE_NAME = 'Angadi'
 export const TAGLINE = 'Smart Bill Smart Business'
 

@@ -60,3 +60,4 @@
 }
 @media (prefers-reduced-motion: reduce) { .abt-do__card { transition: none; } }
 .abt-how + .pp-cta { padding-top: 48px; }
+.abt-how__n::before { content: attr(data-n); }

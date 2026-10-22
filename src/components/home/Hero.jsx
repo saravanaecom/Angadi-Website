@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Head } from 'vite-react-ssg'
 import { ArrowRight, Check } from 'lucide-react'
 import HeroHighlights from './HeroHighlights'
 import { HERO_SLIDES, HERO_SIZES, heroSrc, heroSrcSet } from '../../data/heroSlides'
@@ -41,9 +40,6 @@ export default function Hero() {
 
   return (
     <section className="hero" aria-roledescription="carousel" aria-label="Angadi highlights">
-      <Head>
-        <link rel="preload" as="image" href={heroSrc(HERO_SLIDES[0].image, 1200)} imageSrcSet={heroSrcSet(HERO_SLIDES[0].image)} imageSizes={HERO_SIZES} fetchPriority="high" />
-      </Head>
       <div
         className="container hero__inner"
         onMouseEnter={() => setPaused(true)}

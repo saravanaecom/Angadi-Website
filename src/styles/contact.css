@@ -49,7 +49,7 @@
 .ct-side__direct p svg { color: var(--lime); }
 .ct-side__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
 .ct-side__btns .pp-btn { padding: 12px 10px; font-size: 15px; }
-.ct-btn-wa { background: #25d366; color: #fff; }
+.ct-btn-wa { background: #25d366; color: #063b20; }
 .ct-side__more { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; color: var(--lime); font-weight: 700; font-size: 14.5px; }
 
 @media (min-width: 640px) {

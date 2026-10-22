@@ -8,7 +8,7 @@
 .hfaq__btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 11px 8px; border-radius: 10px; font-weight: 700; font-size: 15px; white-space: nowrap; transition: transform .2s; }
 .hfaq__btn:hover { transform: translateY(-2px); }
 .hfaq__btn--call { color: #063b20; background: linear-gradient(100deg, var(--lime), #7cc520); }
-.hfaq__btn--wa { color: #fff; background: #25d366; }
+.hfaq__btn--wa { color: #063b20; background: #25d366; }
 .hfaq__link { justify-self: start; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--lime); text-decoration: underline; }
 
 .hfaq__list { display: grid; gap: 10px; align-content: start; }

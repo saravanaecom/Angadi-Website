@@ -64,7 +64,7 @@ export default function About() {
             <img
               src={heroSrc(HERO_IMAGE, 1200)}
               srcSet={heroSrcSet(HERO_IMAGE)}
-              sizes="(min-width: 1024px) 560px, 100vw"
+              sizes="(min-width: 1024px) 560px, calc(100vw - 32px)"
               width="1200"
               height="800"
               alt="Angadi billing software running at a retail shop counter"
@@ -130,7 +130,7 @@ export default function About() {
           <ol className="abt-how__steps">
             {HOW_WE_WORK.map(([Icon, title, text], i) => (
               <li key={title}>
-                <span className="abt-how__n">{String(i + 1).padStart(2, '0')}</span>
+                <span className="abt-how__n" data-n={String(i + 1).padStart(2, '0')} aria-hidden="true" />
                 <span className="abt-how__ic"><Icon size={22} aria-hidden="true" /></span>
                 <h3>{title}</h3>
                 <p>{text}</p>
