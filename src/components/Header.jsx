@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, Download, House, User, Package, Tag, Newspaper, Mail, ArrowRight } from 'lucide-react'
+import { Menu, X, Phone, Download, House, User, Package, Tag, LayoutGrid, Newspaper, Mail, ArrowRight } from 'lucide-react'
 import Logo from './Logo'
 import SocialIcons from './SocialIcons'
 import GoogleRating from './GoogleRating'
@@ -12,6 +12,7 @@ const NAV_ICONS = {
   '/about-us': User,
   '/products': Package,
   '/pricing': Tag,
+  '/features': LayoutGrid,
   '/blog': Newspaper,
   '/contact-us': Mail,
 }

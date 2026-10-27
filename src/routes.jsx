@@ -18,6 +18,7 @@ export const routes = [
       { path: 'products', lazy: () => import('./pages/Products').then(page()) },
       ...PRODUCTS.map((p) => ({ path: `products/${p.slug}`, lazy: () => import('./pages/ProductPage').then(page({ product: p })) })),
       { path: 'pricing', lazy: () => import('./pages/Pricing').then(page()) },
+      { path: 'features', lazy: () => import('./pages/Features').then(page()) },
       { path: 'blog', lazy: () => import('./pages/Blog').then(page()) },
       { path: 'contact-us', lazy: () => import('./pages/Contact').then(page()) },
       { path: 'privacy-policy', lazy: () => import('./pages/LegalPage').then(page({ page: 'privacy' })) },

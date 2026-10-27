@@ -200,6 +200,9 @@ img, svg { display: block; max-width: 100%; }
 }
 
 @media (min-width: 1367px) and (max-width: 1699px) { .nav__list { gap: 20px; } }
+/* 7 menu items: tighter gaps so laptops (1240-1366px) keep both side tabs */
+@media (min-width: 1240px) and (max-width: 1366px) { .nav__list { gap: 10px; padding-left: 4px; } }
+@media (min-width: 1367px) and (max-width: 1449px) { .nav__list { gap: 6px; padding-left: 4px; } }
 /* Too narrow for both side tabs: drop the left tab and badge, card gets its old left slant */
 @media (max-width: 1239px) {
   .hdr__trust, .hdr__trial { display: none; }

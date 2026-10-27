@@ -22,6 +22,7 @@ export const NAV_LINKS = [
   { to: '/about-us', label: 'About Us' },
   { to: '/products', label: 'Products' },
   { to: '/pricing', label: 'Pricing' },
+  { to: '/features', label: 'Features' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact-us', label: 'Contact Us' },
 ]

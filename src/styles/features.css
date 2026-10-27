@@ -1,0 +1,52 @@
+/* Features page (/features): product-page hero, feature groups, hardware, two-column FAQ, CTA. Shares the pp-* product page styles */
+
+/* Feature groups: each group has an icon header and a grid of tinted cards with a check mark */
+.ft-groups { padding: 60px 0 40px; }
+.ft-sub { margin-top: 6px; color: #475569; }
+.ft-cat { --tint: #eef8f1; --edge: #cfe9d8; --ink2: #0f7a3d; margin-top: 36px; }
+.ft-cat--amber { --tint: #fff7e8; --edge: #f6e0b5; --ink2: #b45309; }
+.ft-cat--blue { --tint: #eef4ff; --edge: #d5e2fb; --ink2: #1d4ed8; }
+.ft-cat--rose { --tint: #fff1f3; --edge: #f8d4db; --ink2: #be123c; }
+.ft-cat--violet { --tint: #f4f1ff; --edge: #e0d8fb; --ink2: #6d28d9; }
+.ft-cat--teal { --tint: #ecfafa; --edge: #c9ecec; --ink2: #0f766e; }
+.ft-cat__head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.ft-cat__ic { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--tint); border: 1px solid var(--edge); color: var(--ink2); }
+.ft-cat__head h3 { font-size: 22px; font-weight: 800; line-height: 1.2; }
+.ft-cat__head p { font-size: 14px; color: #64748b; }
+
+.ft-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.ft-card { display: flex; gap: 10px; padding: 16px 16px 16px 14px; border: 1px solid var(--edge); border-radius: 14px; background: var(--tint); transition: box-shadow .2s, transform .2s; }
+.ft-card:hover { box-shadow: 0 12px 26px rgba(15, 23, 42, .08); transform: translateY(-2px); }
+.ft-card__ic { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: #fff; border: 1px solid var(--edge); color: var(--ink2); }
+.ft-card h4 { margin: 0; font-size: 15.5px; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.ft-card p { margin: 4px 0 0; font-size: 13.5px; color: #475569; line-height: 1.5; }
+
+.ft-hw { background: linear-gradient(120deg, #f4fbf6, #eaf6ee); }
+
+/* FAQ: heading on the left, questions on the right (desktop) */
+.ft-faq { padding: 56px 0; }
+.ft-faq__in { display: grid; gap: 24px; }
+.ft-faq h2 { font-size: clamp(26px, 3vw, 36px); }
+.ft-faq__call { margin-top: 10px; color: #475569; }
+.ft-faq__call a { font-weight: 800; color: var(--green); }
+.ft-faq .pp-faq__list { width: 100%; }
+
+@media (min-width: 560px) {
+  .ft-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .ft-groups { padding: 76px 0 48px; }
+  .ft-grid { grid-template-columns: repeat(4, 1fr); }
+  .ft-cat { margin-top: 44px; }
+  .ft-faq { padding: 72px 0 48px; }
+  .ft-faq__in { grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: start; }
+}
+@media (max-width: 640px) {
+  .ft-groups { padding: 44px 0 24px; }
+  .ft-cat { margin-top: 30px; }
+  .ft-cat__ic { width: 46px; height: 46px; }
+  .ft-cat__head h3 { font-size: 20px; }
+  .ft-card { padding: 14px 14px 14px 12px; }
+  .ft-faq { padding: 40px 0 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .ft-card { transition: none; } }
