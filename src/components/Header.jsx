@@ -63,6 +63,18 @@ export default function Header() {
 
   return (
     <header className={`header${stuck ? ' is-stuck' : ''}`}>
+      {/* Mobile only: thin green strip with the number and the free trial */}
+      <div className="mstrip">
+        <a href={PHONE_LINK} className="mstrip__call">
+          <span className="mstrip__ic"><Phone size={13} aria-hidden="true" /></span>
+          <span className="phone-num">{PHONE_DISPLAY}</span>
+        </a>
+        <Link to="/contact-us" className="mstrip__trial">
+          <b>30 Days Free Trial</b>
+          <small>No Credit Card Needed</small>
+        </Link>
+      </div>
+
       <div className="hdr">
         <div className="topbar">
           <div className="topbar__follow">
@@ -126,9 +138,10 @@ export default function Header() {
                 </div>
               </nav>
 
-              {/* Mobile only: call button beside the menu toggle */}
-              <a href={PHONE_LINK} className="navbar__mphone">
-                <span className="phone-ring"><Phone size={15} aria-hidden="true" /></span> <span>{PHONE_DISPLAY}</span>
+              {/* Mobile only: download button beside the menu toggle */}
+              <a href={DOWNLOAD_LINK} className="navbar__demo">
+                <Download size={18} strokeWidth={2.4} aria-hidden="true" />
+                <span>Download<small>Android &amp; iOS</small></span>
               </a>
 
               <button

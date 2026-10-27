@@ -246,42 +246,68 @@ img, svg { display: block; max-width: 100%; }
   .nav__mobile-extra .btn { flex: 1; }
 }
 
-/* Mobile header: one green bar with [logo] .... [call] [menu]. No top bar or follow icons. */
-.navbar__mphone { display: none; }
+/* Mobile header line 1: green strip with the number and the free trial; line 2: white bar with logo, Download, menu */
+.mstrip, .navbar__demo { display: none; }
 @media (max-width: 1080px) {
   .header { padding: 0; }
   .topbar { display: none; }
+  .hdr { background: #fff; border-bottom: 3px solid var(--lime); box-shadow: 0 4px 14px rgba(6, 59, 32, .1); }
   .hdr__card { top: 0; margin: 0; }
-  .navbar { min-height: 0; padding: 12px 14px; gap: 10px; background: transparent; border-radius: 0; box-shadow: none; }
-  .navbar > .logo { margin-right: auto; background: #fff; border-radius: 12px; padding: 4px 12px; box-shadow: 0 4px 12px rgba(3, 30, 16, .25); }
-  .logo img { height: 50px; }
-  .navbar__mphone {
-    display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 14px; border-radius: 12px;
-    background: linear-gradient(100deg, var(--lime), #7cc520); border: 0; box-shadow: 0 6px 16px rgba(124, 197, 32, .4);
-    color: #063b20; font-weight: 800; font-size: 19px; letter-spacing: .3px; white-space: nowrap;
+  .navbar { min-height: 0; padding: 10px 12px; gap: 10px; background: transparent; border-radius: 0; box-shadow: none; }
+  .navbar > .logo { margin-right: auto; }
+  .logo img { height: 60px; }
+  .mstrip {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; padding: 0 14px;
+    background: linear-gradient(100deg, #063b20, #0f7a3d); color: #fff;
   }
-  .navbar__mphone { padding-left: 7px; }
-  .navbar__mphone .phone-ring { width: 32px; height: 32px; background: #063b20; }
-  .navbar__mphone .phone-ring svg { color: var(--lime); }
-  .navbar__mphone .phone-ring::after { border-color: #063b20; }
-  .navbar__mphone:hover { background: linear-gradient(100deg, #b5f04a, #8ad42a); }
+  .mstrip__call { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-size: 20px; font-weight: 800; letter-spacing: .4px; }
+  /* Phone icon: shakes every few seconds with a pulsing ring around it */
+  .mstrip__ic { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--lime); color: #063b20; }
+  .mstrip__ic svg { width: 16px; height: 16px; animation: m-shake 2.4s ease-in-out infinite; }
+  .mstrip__ic::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--lime); animation: phone-ring 1.8s ease-out infinite; }
+  .mstrip__call .phone-num { animation: m-glow 2.4s ease-in-out infinite; }
+  .mstrip__trial { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; padding: 3px 0; text-align: right; }
+  .mstrip__trial b { color: var(--lime); font-size: 15px; font-weight: 800; }
+  .mstrip__trial small { color: #d6efd9; font-size: 12px; font-weight: 500; }
+  /* Download: bouncing arrow and a shine sweeping across */
+  .navbar__demo {
+    position: relative; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 9px; height: 52px; padding: 0 16px 0 14px; border-radius: 12px; white-space: nowrap;
+    background: linear-gradient(100deg, var(--lime), #7cc520); color: #063b20; font-weight: 800; font-size: 17px; line-height: 1.1;
+    box-shadow: 0 4px 12px rgba(124, 197, 32, .35);
+  }
+  .navbar__demo svg { width: 22px; height: 22px; animation: dl-drop 1.6s ease-in-out infinite; }
+  .navbar__demo::after {
+    content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .7), transparent); transform: skewX(-20deg);
+    animation: m-shine 3s ease-in-out infinite;
+  }
+  .navbar__demo > span { display: flex; flex-direction: column; }
+  .navbar__demo small { font-size: 12px; font-weight: 600; }
   .header__toggle {
-    flex: none; display: grid; place-items: center; width: 46px; height: 46px; margin-left: 0; padding: 0; border-radius: 12px;
-    background: rgba(255, 255, 255, .12); border: 1.5px solid rgba(255, 255, 255, .45); color: #fff;
+    flex: none; display: grid; place-items: center; width: 52px; height: 52px; margin-left: 0; padding: 0; border-radius: 12px;
+    background: #0f7a3d; border: 0; color: #fff;
   }
-  .nav { left: 12px; right: 12px; top: calc(100% + 4px); max-height: calc(100svh - 96px); overflow-y: auto; overscroll-behavior: contain; }
+  .nav { left: 12px; right: 12px; top: calc(100% + 4px); max-height: calc(100svh - 150px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@keyframes m-shake { 0%, 60%, 100% { transform: rotate(0); } 64%, 72%, 80% { transform: rotate(-16deg); } 68%, 76%, 84% { transform: rotate(16deg); } }
+@keyframes m-glow { 0%, 60%, 100% { color: #fff; } 72% { color: var(--lime); } }
+@keyframes m-shine { 0%, 55% { left: -60%; } 85%, 100% { left: 120%; } }
+@media (prefers-reduced-motion: reduce) {
+  .mstrip__ic svg, .mstrip__ic::after, .mstrip__call .phone-num, .navbar__demo svg, .navbar__demo::after { animation: none; }
 }
 @media (max-width: 400px) {
-  .navbar { padding: 10px 10px; gap: 8px; }
-  .navbar > .logo { padding: 4px 8px; }
-  .logo img { height: 42px; }
-  .navbar__mphone { height: 42px; padding: 0 10px 0 6px; gap: 6px; font-size: 17px; }
-  .navbar__mphone .phone-ring { width: 30px; height: 30px; }
-  .header__toggle { width: 42px; height: 42px; }
+  .mstrip { padding: 0 10px; }
+  .mstrip__call { font-size: 18px; gap: 8px; }
+  .mstrip__trial b { font-size: 14px; }
+  .mstrip__trial small { font-size: 11px; }
+  .navbar { padding: 9px 10px; gap: 8px; }
+  .logo img { height: 50px; }
+  .navbar__demo { height: 48px; padding: 0 12px; gap: 7px; font-size: 15.5px; }
+  .header__toggle { width: 48px; height: 48px; }
 }
 @media (max-width: 340px) {
-  .navbar__mphone > span:last-child { display: none; }
-  .navbar__mphone { padding: 0 6px; }
+  .navbar__demo small { display: none; }
 }
 
 @media (max-width: 380px) {
@@ -622,4 +648,3 @@ a.mega__item:hover .mega__ic { background: linear-gradient(135deg, #063b20, var(
   .hero .btn-row .btn--lg, .cta .btn-row .btn--lg { font-size: 13px; padding: 11px 4px; white-space: normal; }
   .hero .hero__points { font-size: 12.5px; gap: 8px 8px; }
 }
-@media (prefers-reduced-motion: reduce) { .navbar__mphone .phone-ring::after { animation: none; } }
