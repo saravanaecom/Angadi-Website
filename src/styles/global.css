@@ -255,15 +255,15 @@ img, svg { display: block; max-width: 100%; }
   .hdr__card { top: 0; margin: 0; }
   .navbar { min-height: 0; padding: 10px 12px; gap: 10px; background: transparent; border-radius: 0; box-shadow: none; }
   .navbar > .logo { margin-right: auto; }
-  .logo img { height: 60px; }
+  .logo img { height: 72px; }
   .mstrip {
     display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; padding: 0 14px;
     background: linear-gradient(100deg, #063b20, #0f7a3d); color: #fff;
   }
-  .mstrip__call { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-size: 20px; font-weight: 800; letter-spacing: .4px; }
+  .mstrip__call { display: inline-flex; align-items: center; gap: 10px; color: #fff; font-size: 24px; font-weight: 800; letter-spacing: .4px; }
   /* Phone icon: shakes every few seconds with a pulsing ring around it */
-  .mstrip__ic { position: relative; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--lime); color: #063b20; }
-  .mstrip__ic svg { width: 16px; height: 16px; animation: m-shake 2.4s ease-in-out infinite; }
+  .mstrip__ic { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--lime); color: #063b20; }
+  .mstrip__ic svg { width: 18px; height: 18px; animation: m-shake 2.4s ease-in-out infinite; }
   .mstrip__ic::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--lime); animation: phone-ring 1.8s ease-out infinite; }
   .mstrip__call .phone-num { animation: m-glow 2.4s ease-in-out infinite; }
   .mstrip__trial { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; padding: 3px 0; text-align: right; }
@@ -298,11 +298,12 @@ img, svg { display: block; max-width: 100%; }
 }
 @media (max-width: 400px) {
   .mstrip { padding: 0 10px; }
-  .mstrip__call { font-size: 18px; gap: 8px; }
+  .mstrip__call { font-size: 21.5px; gap: 7px; letter-spacing: .2px; }
+  .mstrip__ic { width: 32px; height: 32px; }
   .mstrip__trial b { font-size: 14px; }
   .mstrip__trial small { font-size: 11px; }
   .navbar { padding: 9px 10px; gap: 8px; }
-  .logo img { height: 50px; }
+  .logo img { height: 60px; }
   .navbar__demo { height: 48px; padding: 0 12px; gap: 7px; font-size: 15.5px; }
   .header__toggle { width: 48px; height: 48px; }
 }
@@ -634,6 +635,12 @@ a.mega__item:hover .mega__ic { background: linear-gradient(135deg, #063b20, var(
   .nav__item--mega > .nav__link { border-bottom: 0; }
 }
 @media (max-width: 380px) { .nav__sub-list { grid-template-columns: 1fr; } }
+
+/* Mobile/tablet hero: less empty space above the pill, between pill and title, and before the picture */
+@media (max-width: 1023px) {
+  .hero__inner { padding-top: 14px; gap: 12px; }
+  .hero__title { margin: 10px 0 14px; }
+}
 
 /* Mobile hero + free-trial banner: both buttons on one line, check points in 2 columns (desktop untouched) */
 @media (max-width: 640px) {
