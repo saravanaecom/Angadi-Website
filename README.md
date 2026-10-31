@@ -24,5 +24,7 @@ src/
 
 ## Before going live
 
+- The pricing page includes a local-development-only payment preview (`npm run dev`). The success screen is a visual demo: it does not charge money, issue licences or send email. Production builds validate the form and show a contact message instead. Connect a payment backend with server-verified payments, server-owned plan amounts and licence-email delivery before enabling live checkout. Never show success solely from form submission or a URL parameter.
+
 - Change `SITE_URL` in `src/data/site.js` and the domain in `public/robots.txt` and `public/sitemap.xml` to your real domain.
 - Replace the sample numbers (10,000+ customers etc.) and reviews in `src/components/home/` with real ones.
