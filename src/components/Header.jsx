@@ -87,7 +87,7 @@ export default function Header() {
       <div className="hdr">
         <div className="topbar">
           {pathname === '/' && (
-            <p className="topbar__powered">Powered by <b>KASSAPOS SOFTWARE SOLUTIONS</b></p>
+            <p className="topbar__powered"><b>ANGADI</b> is a Product of <b>KASSAPOS SOFTWARE SOLUTIONS</b></p>
           )}
           <div className="topbar__follow">
             <span>Follow Us :</span>

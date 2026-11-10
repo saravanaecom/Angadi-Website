@@ -15,7 +15,7 @@ export default function CtaBanner() {
         <div>
           <h2 id="cta-title" className="section__title">Start Your Free Trial Today</h2>
           <p className="section__sub">
-            Experience the simple and powerful billing software trusted by businesses across India.
+            ANGADI is a Product of KASSAPOS SOFTWARE SOLUTIONS.
           </p>
           <div className="btn-row">
             <Link to="/contact-us" className="btn btn--primary btn--lg">
