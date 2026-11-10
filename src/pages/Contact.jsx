@@ -172,7 +172,7 @@ export default function Contact() {
             <p className="pp-pill">Contact Us</p>
             <h1>Let&apos;s Talk About Your Billing</h1>
             <p className="pp-hero__text">
-              Book a free demo, ask about pricing or get help with Angadi. Reach us the way you like, in Tamil or English.
+              Contact Angadi Software Solutions to book a free demo, ask about pricing or get help with Angadi Billing Software. Reach us the way you like, in Tamil or English.
             </p>
           </div>
           <ul className="ct-cards">

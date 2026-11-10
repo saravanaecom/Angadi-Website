@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
       <div className="footer__bar">
         <div className="container footer__bar-in">
-          <p>© {new Date().getFullYear()} Angadi. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Angadi Software Solutions. All rights reserved.</p>
           <nav aria-label="Legal">
             {LEGAL_LINKS.map((l) => <Link key={l.to} to={l.to}>{l.label}</Link>)}
           </nav>

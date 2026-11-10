@@ -136,6 +136,32 @@ img, svg { display: block; max-width: 100%; }
   );
 }
 .navbar > .logo { padding-right: 24px; border-right: 1px solid var(--line); }
+.navbar__desktop-login {
+  display: none; flex: none; flex-direction: column; align-items: center; gap: 4px;
+  padding-left: 16px; border-left: 1px solid #cbd5e1;
+}
+.navbar__desktop-label {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  color: var(--green-dark); font-size: 14.4px; font-weight: 800; line-height: 1;
+  white-space: nowrap;
+}
+.navbar__desktop-label svg { flex: none; fill: none; stroke: var(--green); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.navbar__login {
+  display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 8px;
+  min-width: 140px; min-height: 44px; padding: 0 17px 0 15px; border-radius: 12px;
+  background: linear-gradient(110deg, #063b20, var(--green)); color: #fff;
+  box-shadow: 0 7px 16px rgba(6, 59, 32, .24); font-size: 16px; font-weight: 700;
+  transition: transform .18s cubic-bezier(.16, 1, .3, 1), box-shadow .18s ease-out;
+  touch-action: manipulation;
+}
+.navbar__login svg { flex: none; color: var(--lime); }
+@media (min-width: 1081px) {
+  .navbar__desktop-login { display: flex; }
+}
+@media (hover: hover) {
+  .navbar__login:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(6, 59, 32, .3); }
+}
+.navbar__login:active { transform: scale(.96); }
 .header__toggle { display: none; margin-left: auto; background: none; border: 0; padding: 6px; color: var(--ink); cursor: pointer; }
 
 /* Phone number: bold display font, lime with a soft glow, pulsing ring on the icon */
@@ -195,6 +221,9 @@ img, svg { display: block; max-width: 100%; }
   .nav__list { gap: 20px; }
   .nav__link { font-size: 14px; padding: 6px 4px; }
   .navbar { gap: 16px; }
+  .navbar__desktop-login { padding-left: 10px; }
+  .navbar__desktop-label { font-size: 12.6px; }
+  .navbar__login { min-width: 126px; min-height: 40px; padding: 0 13px 0 12px; font-size: 15px; }
   .hdr__trial { padding: 0 60px 0 12px; gap: 8px; font-size: 16px; }
   .navbar > .logo { padding-right: 16px; }
 }
@@ -203,8 +232,15 @@ img, svg { display: block; max-width: 100%; }
 /* 7 menu items: tighter gaps so laptops (1240-1366px) keep both side tabs */
 @media (min-width: 1240px) and (max-width: 1366px) { .nav__list { gap: 10px; padding-left: 4px; } }
 @media (min-width: 1367px) and (max-width: 1449px) { .nav__list { gap: 6px; padding-left: 4px; } }
-/* Too narrow for both side tabs: drop the left tab and badge, card gets its old left slant */
-@media (max-width: 1239px) {
+/* Keep both side tabs on medium-wide desktops without letting the login block push the phone tab off-screen. */
+@media (min-width: 1600px) and (max-width: 1799px) {
+  .nav__list { gap: 14px; padding-left: 6px; }
+  .navbar { gap: 16px; padding: 0 48px; }
+  .navbar > .logo { padding-right: 20px; }
+  .navbar__desktop-login { padding-left: 12px; }
+}
+/* Too narrow for both side tabs: drop the left tab and badge, card gets its old left slant. */
+@media (max-width: 1599px) {
   .hdr__trust, .hdr__trial { display: none; }
   .hdr__card { flex: 1 1 auto; }
   .navbar__phone { flex: 0 0 calc(var(--tab) + 40px); }

@@ -5,7 +5,7 @@ import Logo from './Logo'
 import SocialIcons from './SocialIcons'
 import GoogleRating from './GoogleRating'
 import { MegaMenu, MobileProducts } from './ProductsMenu'
-import { NAV_LINKS, PHONE_DISPLAY, PHONE_LINK, DOWNLOAD_LINK } from '../data/site'
+import { NAV_LINKS, PHONE_DISPLAY, PHONE_LINK, DOWNLOAD_LINK, LOGIN_LINK } from '../data/site'
 
 const NAV_ICONS = {
   '/': House,
@@ -26,6 +26,14 @@ function GiftIcon() {
       <rect x="2.5" y="7.5" width="19" height="4.2" rx="1.2" fill="#dc2626" />
       <rect x="10.4" y="7.5" width="3.2" height="13.5" fill="#facc15" />
       <rect x="3.5" y="11.7" width="17" height="1.2" fill="#b91c1c" opacity=".5" />
+    </svg>
+  )
+}
+
+function CloudMark() {
+  return (
+    <svg viewBox="0 0 28 18" width="22" height="14" aria-hidden="true">
+      <path d="M7.2 15.2h13.4a4.1 4.1 0 0 0 .5-8.17 6.15 6.15 0 0 0-11.72-1.4A4.9 4.9 0 0 0 7.2 15.2Z" />
     </svg>
   )
 }
@@ -138,6 +146,17 @@ export default function Header() {
                   <GoogleRating />
                 </div>
               </nav>
+
+              <div className="navbar__desktop-login">
+                <span className="navbar__desktop-label">
+                  <CloudMark />
+                  Online Billing Software
+                </span>
+                <a href={LOGIN_LINK} className="navbar__login">
+                  <User size={21} strokeWidth={2} aria-hidden="true" />
+                  <span>Login</span>
+                </a>
+              </div>
 
               {/* Mobile only: download button beside the menu toggle */}
               <a href={DOWNLOAD_LINK} className="navbar__demo">

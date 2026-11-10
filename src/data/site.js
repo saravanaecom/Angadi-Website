@@ -35,5 +35,6 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/',
 }
 export const DOWNLOAD_LINK = '/contact-us' // change to the software download link
+export const LOGIN_LINK = '/contact-us' // change to the customer login page
 export const GOOGLE_REVIEW_LINK = 'https://www.google.com/maps' // change to your Google Business review page
 export const GOOGLE_RATING = '4.9' // change to your real Google rating

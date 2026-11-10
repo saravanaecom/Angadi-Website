@@ -46,7 +46,8 @@ export function WhyTrust() {
           <h2 id="why-trust-title">Why Businesses Trust Angadi Billing Software?</h2>
           <p className="why-t__lead">
             Shop owners stay with Angadi because the counter never stops, the numbers are always right
-            and help is one call away, in the language they speak.
+            and help is one call away, in the language they speak. Angadi Software Solutions develops
+            and supports Angadi Billing Software.
           </p>
           <dl className="why-t__proof">
             {PROOF.map(([num, label]) => (
