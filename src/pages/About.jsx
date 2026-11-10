@@ -52,7 +52,7 @@ export default function About() {
             <p className="pp-pill">Our Story</p>
             <h1>We Keep Your Counter Moving <em>Billing software made in Tamil Nadu</em></h1>
             <p className="pp-hero__text">
-              Angadi Software Solutions is the company behind Angadi, the billing, stock and accounts software used by more than 10,000 shops. For 17+ years we have had one job:
+              Angadi is the company behind Angadi, the billing, stock and accounts software used by more than 10,000 shops. For 17+ years we have had one job:
               make every bill quick, every number clear and every owner a little less worried.
             </p>
             <div className="pp-btns">
