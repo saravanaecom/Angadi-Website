@@ -107,6 +107,8 @@ img, svg { display: block; max-width: 100%; }
 }
 /* gentle blink: opacity only, so it runs on the GPU and costs nothing for PageSpeed */
 @keyframes tag-blink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.topbar__powered { display: flex; align-items: center; gap: 5px; color: #d6efd9; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.topbar__powered b { color: var(--lime); font-size: 12.5px; font-weight: 800; letter-spacing: .2px; }
 .topbar__follow { display: flex; align-items: center; gap: 12px; font-weight: 500; }
 .social { display: flex; gap: 10px; }
 .social a { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; background: #fff; color: var(--green-dark); transition: background .2s; }

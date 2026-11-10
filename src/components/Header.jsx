@@ -86,6 +86,9 @@ export default function Header() {
 
       <div className="hdr">
         <div className="topbar">
+          {pathname === '/' && (
+            <p className="topbar__powered">Powered by <b>ANGADI SOFTWARE SOLUTIONS</b></p>
+          )}
           <div className="topbar__follow">
             <span>Follow Us :</span>
             <SocialIcons />
