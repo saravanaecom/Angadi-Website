@@ -5,7 +5,7 @@ import Logo from './Logo'
 import SocialIcons from './SocialIcons'
 import GoogleRating from './GoogleRating'
 import { MegaMenu, MobileProducts } from './ProductsMenu'
-import { NAV_LINKS, PHONE_DISPLAY, PHONE_LINK, DOWNLOAD_LINK, LOGIN_LINK } from '../data/site'
+import { NAV_LINKS, PHONE_DISPLAY, PHONE_LINK, DOWNLOAD_LINK, LOGIN_LINK, getMobileAppLink, getMobileAppStore } from '../data/site'
 
 const NAV_ICONS = {
   '/': House,
@@ -38,6 +38,27 @@ function CloudMark() {
   )
 }
 
+function GooglePlayIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <rect width="24" height="24" rx="5" fill="#fff" />
+      <path d="M5.2 4.4v15.2L13.5 12 5.2 4.4Z" fill="#00c9a7" />
+      <path d="m5.2 4.4 10.4 5.9-2.1 1.7-8.3-7.6Z" fill="#20a9ff" />
+      <path d="m5.2 19.6 10.4-5.9-2.1-1.7-8.3 7.6Z" fill="#ffd43b" />
+      <path d="m15.6 10.3 2.8 1.6c.3.2.3.4 0 .6l-2.8 1.6-2.1-2.1 2.1-1.7Z" fill="#ff4b55" />
+    </svg>
+  )
+}
+
+function AppStoreIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <rect width="24" height="24" rx="5" fill="#fff" />
+      <path d="M14.7 5.25c.73-.88 1.23-2.08 1.1-3.25-1.05.04-2.34.7-3.1 1.58-.68.76-1.28 1.99-1.12 3.1 1.18.09 2.37-.59 3.12-1.43Zm2.65 6.9c-.02-2.25 1.84-3.34 1.93-3.4-1.05-1.55-2.68-1.71-3.26-1.75-1.38-.14-2.7.82-3.4.82-.71 0-1.79-.8-2.94-.78-1.49.02-2.87.86-3.63 2.18-1.56 2.69-.4 6.66 1.1 8.84.75 1.07 1.63 2.27 2.79 2.22 1.12-.05 1.54-.72 2.89-.72 1.34 0 1.72.72 2.9.69 1.2-.02 1.96-1.08 2.68-2.16.86-1.23 1.2-2.44 1.22-2.5-.03-.01-2.28-.88-2.29-3.44Z" fill="#191919" />
+    </svg>
+  )
+}
+
 // Desktop screens list the computer apps, phone screens the mobile apps (swapped in CSS, no layout shift)
 function OsText() {
   return (
@@ -50,7 +71,20 @@ function OsText() {
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [mobileApp, setMobileApp] = useState({ link: DOWNLOAD_LINK, store: 'other' })
   const { pathname } = useLocation()
+
+  useEffect(() => {
+    const device = {
+      userAgent: navigator.userAgent,
+      platform: navigator.userAgentData?.platform || navigator.platform,
+      maxTouchPoints: navigator.maxTouchPoints,
+    }
+    setMobileApp({
+      link: getMobileAppLink(device),
+      store: getMobileAppStore(device),
+    })
+  }, [])
 
   // Products mega menu (desktop): opens on hover/focus, closes after a short delay so the pointer can travel into it
   const [mega, setMega] = useState(false)
@@ -86,9 +120,6 @@ export default function Header() {
 
       <div className="hdr">
         <div className="topbar">
-          {pathname === '/' && (
-            <p className="topbar__powered"><b>ANGADI</b> is a Product of <b>KASSAPOS SOFTWARE SOLUTIONS</b></p>
-          )}
           <div className="topbar__follow">
             <span>Follow Us :</span>
             <SocialIcons />
@@ -161,10 +192,16 @@ export default function Header() {
                 </a>
               </div>
 
-              {/* Mobile only: download button beside the menu toggle */}
-              <a href={DOWNLOAD_LINK} className="navbar__demo">
-                <Download size={18} strokeWidth={2.4} aria-hidden="true" />
-                <span>Download<small>Android &amp; iOS</small></span>
+              {/* Mobile only: opens the matching app store beside the menu toggle */}
+              <a
+                href={mobileApp.link}
+                className={`navbar__demo${mobileApp.store === 'android' ? ' navbar__demo--android' : mobileApp.store === 'ios' ? ' navbar__demo--ios' : ''}`}
+                aria-label="Install Angadi app"
+              >
+                {mobileApp.store === 'android' && <GooglePlayIcon />}
+                {mobileApp.store === 'ios' && <AppStoreIcon />}
+                {mobileApp.store === 'other' && <Download size={18} strokeWidth={2.4} aria-hidden="true" />}
+                <span>Install App</span>
               </a>
 
               <button

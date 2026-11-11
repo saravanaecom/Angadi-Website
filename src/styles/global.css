@@ -107,8 +107,6 @@ img, svg { display: block; max-width: 100%; }
 }
 /* gentle blink: opacity only, so it runs on the GPU and costs nothing for PageSpeed */
 @keyframes tag-blink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
-.topbar__powered { display: flex; align-items: center; gap: 5px; color: #d6efd9; font-size: 12px; font-weight: 500; white-space: nowrap; }
-.topbar__powered b { color: var(--lime); font-size: 12.5px; font-weight: 800; letter-spacing: .2px; }
 .topbar__follow { display: flex; align-items: center; gap: 12px; font-weight: 500; }
 .social { display: flex; gap: 10px; }
 .social a { display: grid; place-items: center; width: 27px; height: 27px; border-radius: 50%; background: #fff; color: var(--green-dark); transition: background .2s; }
@@ -260,7 +258,7 @@ img, svg { display: block; max-width: 100%; }
   .header { padding: 0 0 18px; }
   .topbar { gap: 12px; min-height: 52px; padding: 0 14px; }
   .topbar__follow > span { display: none; }
-  .topbar__follow { margin-left: 0; }
+  .topbar__follow { position: absolute; left: 50%; margin-left: 0; transform: translateX(-50%); }
   .topbar__phone { display: inline-flex; order: -1; margin-right: auto; padding-left: 0; border-left: 0; font-size: 17px; }
   .social { gap: 8px; }
   .social a { width: 30px; height: 30px; }
@@ -317,13 +315,39 @@ img, svg { display: block; max-width: 100%; }
     background: linear-gradient(100deg, var(--lime), #7cc520); color: #063b20; font-weight: 800; font-size: 17px; line-height: 1.1;
     box-shadow: 0 4px 12px rgba(124, 197, 32, .35);
   }
+  .navbar__demo--android,
+  .navbar__demo--ios {
+    gap: 10px; padding: 0 16px 0 11px; border-radius: 18px;
+    background: linear-gradient(105deg, #043d20 0%, #0c7135 52%, #064824 100%); color: #fff;
+    box-shadow: 0 7px 16px rgba(4, 72, 36, .36); font-size: 17.5px; letter-spacing: -.01em;
+    text-shadow: 0 1px 2px rgba(4, 86, 15, .22);
+  }
   .navbar__demo svg { width: 22px; height: 22px; animation: dl-drop 1.6s ease-in-out infinite; }
+  .navbar__demo--android svg,
+  .navbar__demo--ios svg { flex: none; width: 31px; height: 31px; animation: none; filter: drop-shadow(0 2px 3px rgba(4, 86, 15, .18)); }
   .navbar__demo::after {
     content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 45%;
     background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .7), transparent); transform: skewX(-20deg);
     animation: m-shine 3s ease-in-out infinite;
   }
+  .navbar__demo--android::after,
+  .navbar__demo--ios::after {
+    display: block; top: -30%; bottom: -30%; left: -42%; width: 58%;
+    background: linear-gradient(100deg, transparent, rgba(87, 235, 68, .45), rgba(255, 255, 255, .18), transparent);
+    transform: translateX(-40%) skewX(-18deg); opacity: 0; pointer-events: none;
+    animation: store-green-sweep 3.4s ease-in-out infinite;
+  }
   .navbar__demo > span { display: flex; flex-direction: column; }
+  .navbar__demo--android > span,
+  .navbar__demo--ios > span { position: relative; z-index: 1; padding-left: 10px; color: var(--lime); }
+  .navbar__demo--android svg,
+  .navbar__demo--ios svg { position: relative; z-index: 1; }
+  .navbar__demo--android > span::before,
+  .navbar__demo--ios > span::before {
+    content: ''; position: absolute; left: 0; top: 50%; width: 1px; height: 28px;
+    background: rgba(255, 255, 255, .82); transform: translateY(-50%);
+    box-shadow: 1px 0 rgba(5, 102, 18, .18);
+  }
   .navbar__demo small { font-size: 12px; font-weight: 600; }
   .header__toggle {
     flex: none; display: grid; place-items: center; width: 52px; height: 52px; margin-left: 0; padding: 0; border-radius: 12px;
@@ -334,6 +358,11 @@ img, svg { display: block; max-width: 100%; }
 @keyframes m-shake { 0%, 60%, 100% { transform: rotate(0); } 64%, 72%, 80% { transform: rotate(-16deg); } 68%, 76%, 84% { transform: rotate(16deg); } }
 @keyframes m-glow { 0%, 60%, 100% { color: #fff; } 72% { color: var(--lime); } }
 @keyframes m-shine { 0%, 55% { left: -60%; } 85%, 100% { left: 120%; } }
+@keyframes store-green-sweep {
+  0%, 54% { transform: translateX(-40%) skewX(-18deg); opacity: 0; }
+  66% { opacity: .9; }
+  100% { transform: translateX(270%) skewX(-18deg); opacity: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
   .mstrip__ic svg, .mstrip__ic::after, .mstrip__call .phone-num, .navbar__demo svg, .navbar__demo::after { animation: none; }
 }
@@ -346,6 +375,14 @@ img, svg { display: block; max-width: 100%; }
   .navbar { padding: 9px 10px; gap: 8px; }
   .logo img { height: 60px; }
   .navbar__demo { height: 48px; padding: 0 12px; gap: 7px; font-size: 15.5px; }
+  .navbar__demo--android,
+  .navbar__demo--ios { padding: 0 11px 0 9px; border-radius: 16px; font-size: 15.5px; }
+  .navbar__demo--android svg,
+  .navbar__demo--ios svg { width: 29px; height: 29px; }
+  .navbar__demo--android > span,
+  .navbar__demo--ios > span { padding-left: 8px; }
+  .navbar__demo--android > span::before,
+  .navbar__demo--ios > span::before { height: 25px; }
   .header__toggle { width: 48px; height: 48px; }
 }
 @media (max-width: 340px) {

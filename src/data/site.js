@@ -35,6 +35,26 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/',
 }
 export const DOWNLOAD_LINK = '/contact-us' // change to the software download link
+export const ANDROID_APP_LINK = 'https://play.google.com/store/apps/details?id=com.kassapos.billmaster&hl=en_IN'
+export const IOS_APP_LINK = 'https://apps.apple.com/in/app/bill-master/id6738004666'
+
+export function getMobileAppStore({ userAgent = '', platform = '', maxTouchPoints = 0 } = {}) {
+  const isIOS = /iPad|iPhone|iPod/i.test(userAgent)
+    || (/Mac/i.test(platform) && maxTouchPoints > 1)
+
+  if (isIOS) return 'ios'
+  if (/Android/i.test(userAgent)) return 'android'
+  return 'other'
+}
+
+export function getMobileAppLink(device = {}) {
+  const store = getMobileAppStore(device)
+
+  if (store === 'ios') return IOS_APP_LINK
+  if (store === 'android') return ANDROID_APP_LINK
+  return DOWNLOAD_LINK
+}
+
 export const LOGIN_LINK = '/contact-us' // change to the customer login page
 export const GOOGLE_REVIEW_LINK = 'https://www.google.com/maps' // change to your Google Business review page
 export const GOOGLE_RATING = '4.9' // change to your real Google rating

@@ -15,7 +15,7 @@ export default function CtaBanner() {
         <div>
           <h2 id="cta-title" className="section__title">Start Your Free Trial Today</h2>
           <p className="section__sub">
-            ANGADI is a Product of KASSAPOS SOFTWARE SOLUTIONS.
+            Angadi.
           </p>
           <div className="btn-row">
             <Link to="/contact-us" className="btn btn--primary btn--lg">
